@@ -8,8 +8,8 @@ global x facx kx m Nx trap c
 %              Grid setting
 % \\\\\\\\\\\\\\\\\\\+\\\\\\\\\\\\\\\\\\\\
 
-xmax = 30*pi;
-Nx   = 256*8*1;
+xmax = 5*pi;
+Nx   = 256*1*1;
 dx   = 2*xmax/Nx;
 x    = -xmax+(0:Nx-1)*dx+0.5*dx;
 facx = pi/xmax;
@@ -25,7 +25,7 @@ R=15; % width
 c=10; % speed of light 
 
 % ==== Potential ====
-trapt='ho';trap=x.^2/2+disx;
+trapt='ho';trap=x.^2/2;
 
 pero=0;
 u1=1*(pi*R^2).^(-1/4)*exp(-((x+pero).^2/(2*R^2))); %1D
@@ -62,7 +62,6 @@ tit=['disorder-1d-spinor-spin0-' ...
     '-mass=' num2str(m) ...
     '-R=' num2str(R) ...   
     '-c=' num2str(c) ...
-    '-disdump=' num2str(A)...
     '-tspan=' num2str(round(tspan(1)/pi)) '-' num2str(round(tspan(end)/pi)) ];
 
 tit1=['save ' tit '.mat'];
